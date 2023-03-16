@@ -1,0 +1,21 @@
+_schema-version: "3.2"
+ID: wfm-book-order
+version: 0.0.1
+modules:
+- name: approve-book-order
+  type: com.sap.application.content
+  path: approve-book-order
+  requires:
+  - name: wm_workflow
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+resources:
+- name: wm_workflow
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: workflow
+    service-plan: lite
